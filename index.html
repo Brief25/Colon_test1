@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOCO – Vocal for Local</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --black:#0f0f0f;
+  --white:#ffffff;
+  --orange:#ff7a00;
+  --gray:#f2f2f2;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, Arial, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--white);
+  color:var(--black);
+}
+
+/* ================= NAVBAR ================= */
+header{
+  background:var(--black);
+  padding:15px 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:700;
+  color:var(--white);
+}
+
+.logo span{color:var(--orange);}
+
+nav{
+  display:flex;
+  align-items:center;
+}
+
+nav a{
+  color:var(--white);
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:600;
+  position:relative;
+}
+
+nav a::after{
+  content:'';
+  position:absolute;
+  width:0;
+  height:2px;
+  left:0;
+  bottom:-6px;
+  background:var(--orange);
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.btn{
+  background:var(--orange);
+  padding:8px 14px;
+  border-radius:5px;
+  color:var(--white);
+}
+
+.btn:hover{
+  background:#ff8c1a;
+}
+
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  color:var(--orange);
+  cursor:pointer;
+}
+
+/* Mobile Nav */
+@media(max-width:768px){
+  .menu-toggle{display:block;}
+
+  nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:var(--black);
+    flex-direction:column;
+    display:none;
+  }
+
+  nav a{
+    margin:15px 0;
+  }
+
+  nav.active{
+    display:flex;
+  }
+}
+
+/* ================= HERO ================= */
+.hero{
+  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+  url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+  background-size:cover;
+  background-position:center;
+  padding:110px 8%;
+  color:var(--white);
+}
+
+.hero h1{
+  font-size:42px;
+  max-width:600px;
+  animation:fadeUp 1s ease forwards;
+}
+
+.hero p{
+  margin:20px 0;
+  max-width:520px;
+  animation:fadeUp 1.3s ease forwards;
+}
+
+.hero .btn{
+  animation:fadeUp 1.6s ease forwards;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding:80px 8%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+section h2{
+  text-align:center;
+  margin-bottom:45px;
+  font-size:32px;
+}
+
+section h2 span{color:var(--orange);}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:var(--gray);
+  padding:30px;
+  border-radius:12px;
+  text-align:center;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 18px 35px rgba(0,0,0,.18);
+}
+
+.card i{
+  font-size:38px;
+  color:var(--orange);
+  margin-bottom:12px;
+  transition:.3s;
+}
+
+.card:hover i{
+  transform:rotate(-5deg) scale(1.15);
+}
+
+/* ================= ABOUT ================= */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+
+.about img{
+  width:100%;
+  border-radius:12px;
+}
+
+@media(max-width:900px){
+  .about{grid-template-columns:1fr;}
+}
+
+/* ================= EXPERTISE ================= */
+.expertise-card{
+  background:var(--white);
+  padding:30px 20px;
+  border-radius:16px;
+  border:1px solid #eee;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  text-align:center;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.expertise-card i{
+  font-size:40px;
+  color:var(--orange);
+  margin-bottom:15px;
+  transition:.3s;
+}
+
+.expertise-card p{
+  font-weight:600;
+}
+
+.expertise-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+.expertise-card:hover i{
+  transform:scale(1.2) rotate(-5deg);
+}
+
+/* ================= CONTACT ================= */
+#contact {
+  position: relative;
+  padding: 80px 20px;
+  background: #fff;
+  color: #333;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+#contact h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+#contact h2 span {
+  color: #ff6b00; /* Orange accent */
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-info, .contact-form {
+  flex: 1 1 300px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ff6b00;
+  border-radius: 10px;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff8c33;
+  box-shadow: 0 0 5px rgba(255,107,0,0.5);
+}
+
+.contact-form button.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #ff6b00;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button.btn:hover {
+  background: #ff8c33;
+}
+
+/* Decorative Animated Shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  transition: transform 0.2s ease-out;
+}
+
+.shape1 {
+  width: 200px;
+  height: 200px;
+  background: #ff6b00;
+  top: -50px;
+  left: -50px;
+}
+
+.shape2 {
+  width: 250px;
+  height: 250px;
+  background: #ff8c33;
+  bottom: -100px;
+  right: -100px;
+}
+
+.shape3 {
+  width: 150px;
+  height: 150px;
+  background: #ffa64d;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+/* ================= PREMIUM SUBSCRIPTION ================= */
+#premium {
+  background: #fff;
+  padding: 80px 8%;
+  text-align: center;
+}
+
+#premium h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+#premium h2 span {
+  color: var(--orange);
+}
+
+.premium-cta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.premium-cta .btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.premium-cta .trial-btn {
+  background: #fff;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+}
+
+.premium-cta .trial-btn:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+.premium-cta .subscribe-btn {
+  background: var(--orange);
+  color: #fff;
+}
+
+.premium-cta .subscribe-btn:hover {
+  background: #ff8c33;
+}
+
+/* Benefits Cards */
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.benefit-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.4s;
+}
+
+.benefit-card i {
+  font-size: 40px;
+  color: var(--orange);
+  margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.benefit-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+/* Pricing Plans */
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+  text-align: center;
+}
+
+.plan {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: 0.4s;
+}
+
+.plan h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.plan .price {
+  font-size: 28px;
+  color: var(--orange);
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.plan ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.plan ul li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.plan a.btn {
+  padding: 12px 25px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.plan:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+.plan.popular {
+  border: 2px solid var(--orange);
+  box-shadow: 0 20px 45px rgba(255,107,0,0.2);
+  transform: scale(1.05);
+}
+
+.plan.popular a.btn {
+  background: var(--orange);
+  color: #fff;
+}
+
+.plan.popular a.btn:hover {
+  background: #ff8c33;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--black);
+  color:var(--white);
+  padding:40px 8%;
+}
+
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.footer-row p{
+  font-size:14px;
+}
+
+.social-icons{
+  display:flex;
+  gap:20px;
+}
+
+.social-icons i{
+  color:var(--orange);
+  font-size:22px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.social-icons i:hover{
+  color:#fff;
+  transform:translateY(-4px) scale(1.25);
+  text-shadow:0 0 10px rgba(255,122,0,.8);
+}
+
+@media(max-width:600px){
+  .footer-row{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
+}
+
+/* ================= FLOATING APP BUTTON ================= */
+.app-float{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--orange);
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  z-index:999;
+  animation:floatPulse 2s infinite;
+}
+
+.app-float i{
+  font-size:22px;
+}
+
+.app-float:hover{
+  background:#ff8c1a;
+  transform:translateY(-4px);
+}
+
+@media(max-width:600px){
+  .app-float span{display:none;}
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes floatPulse{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+  100%{transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">VO<span>CO</span></div>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <nav id="navMenu">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#categories">Categories</a>
+    <a href="#premium">Premium</a>
+    <a href="#contact">Contact</a>
+    <a href="#" class="btn">Login</a>
+    <a href="#" class="btn">Register</a>
+  </nav>
+</header>
+
+<section class="hero show">
+  <h1>Empowering Local Businesses Digitally</h1>
+  <p>VOCO helps small & local businesses grow online with digital presence, visibility and tools.</p>
+  <a class="btn">Join Now</a>
+</section>
+
+<section id="categories">
+  <h2>Business <span>Categories</span></h2>
+  <div class="grid">
+    <div class="card"><i class="fa-solid fa-utensils"></i><h3>Restaurants</h3></div>
+    <div class="card"><i class="fa-solid fa-paint-roller"></i><h3>Paint Shops</h3></div>
+    <div class="card"><i class="fa-solid fa-notes-medical"></i><h3>Medical Stores</h3></div>
+    <div class="card"><i class="fa-solid fa-shirt"></i><h3>Clothing</h3></div>
+    <div class="card"><i class="fa-solid fa-video"></i><h3>CCTV & Security</h3></div>
+    <div class="card"><i class="fa-solid fa-store"></i><h3>Retail</h3></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About <span>VOCO</span></h2>
+  <div class="about">
+    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7">
+    <p>
+      VOCO (Vocal for Local Commerce) is a platform designed to bring
+      local businesses into the digital ecosystem. We provide visibility,
+      technology, and support to help sellers grow sustainably.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Our <span>Expertise</span></h2>
+  <div class="grid">
+    <div class="expertise-card animate"><i class="fa-solid fa-store"></i><p>Business Digitization</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-earth-asia"></i><p>Market Expansion</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-credit-card"></i><p>Secure Payments</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-chart-line"></i><p>Analytics & Insights</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-bullhorn"></i><p>Digital Marketing</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-handshake"></i><p>Local Collaboration</p></div>
+  </div>
+</section>
+
+<!-- ================= PREMIUM SUBSCRIPTION ================= -->
+<section id="premium">
+  <h2>Go Premium – <span>Unlock Exclusive Benefits</span></h2>
+
+  <div class="premium-cta">
+    <a href="#" class="btn trial-btn">Start Free Trial</a>
+    <a href="#" class="btn subscribe-btn">Subscribe Now</a>
+  </div>
+
+  <div class="benefits grid">
+    <div class="benefit-card">
+      <i class="fa-solid fa-tag"></i>
+      <h3>Exclusive Discounts</h3>
+      <p>Get special offers only available for Premium members.</p>
+    </div>
+    <div class="benefit-card">
+      <i class="fa-solid fa-bolt"></i>
+      <h3>Priority Access</h3>
+      <p>Early access to new businesses and promotions.</p>
+    </div>
+    <div class="benefit-card">
+      <i class="fa-solid fa-star"></i>
+      <h3>Loyalty Rewards</h3>
+      <p>Earn points on every order and redeem exciting rewards.</p>
+    </div>
+    <div class="benefit-card">
+      <i class="fa-solid fa-heart"></i>
+      <h3>Support Local</h3>
+      <p>Every purchase helps local businesses grow sustainably.</p>
+    </div>
+  </div>
+
+  <div class="pricing grid">
+    <div class="plan">
+      <h3>Basic</h3>
+      <p class="price">Free</p>
+      <ul>
+        <li>Browse businesses</li>
+        <li>View deals</li>
+      </ul>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+    <div class="plan popular">
+      <h3>Premium</h3>
+      <p class="price">₹99/month</p>
+      <ul>
+        <li>Exclusive discounts</li>
+        <li>Priority access</li>
+        <li>Loyalty rewards</li>
+        <li>Save favorites</li>
+      </ul>
+      <a href="#" class="btn">Subscribe Now</a>
+    </div>
+    <div class="plan">
+      <h3>Pro</h3>
+      <p class="price">₹199/month</p>
+      <ul>
+        <li>All Premium benefits</li>
+        <li>Personalized recommendations</li>
+        <li>Premium support</li>
+      </ul>
+      <a href="#" class="btn">Subscribe Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact <span>Us</span></h2>
+  <div class="contact">
+    <div class="contact-info">
+      <p><strong>Email:</strong> support@thevoco.in</p>
+      <p><strong>Phone:</strong> +91 9XXXXXXXXX</p>
+      <p><strong>Location:</strong> India</p>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button class="btn">Send</button>
+    </form>
+  </div>
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+</section>
+
+<footer>
+  <div class="footer-row">
+    <p>© 2026 VOCO – Vocal for Local</p>
+    <div class="social-icons">
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin"></i>
+      <i class="fab fa-twitter"></i>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="app-float">
+  <i class="fa-brands fa-google-play"></i>
+  <span>Download App</span>
+</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("active");
+}
+
+/* Scroll animation */
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.2});
+
+sections.forEach(sec=>observer.observe(sec));
+
+/* Floating shapes animation */
+const shapes = document.querySelectorAll('.shape');
+document.addEventListener('mousemove', (e) => {
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  shapes.forEach((shape, index) => {
+    const moveX = (x - 0.5) * (20 + index * 10);
+    const moveY = (y - 0.5) * (20 + index * 10);
+    shape.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+});
+</script>
+</body>
+</html>
