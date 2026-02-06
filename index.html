@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VOCO – Vocal for Local</title>
+<title>Colon</title>
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -683,34 +683,104 @@ footer{
     background: linear-gradient(135deg, #dc3545, #b02a37);
 }
 
+/* ================= NOTIFICATION ================= */
+#notifications {
+  padding: 80px 8%;
+  background: #f9f9f9;
+}
+
+#notifications h2{
+  text-align:center;
+  margin-bottom: 45px;
+}
+
+#notifications h2 span{color: var(--orange);}
+
+.notification-table-wrapper {
+  overflow-x: auto;
+}
+
+.notification-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.notification-table th,
+.notification-table td {
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.notification-table th {
+  background: var(--orange);
+  color: #fff;
+  font-weight: 600;
+}
+
+.notification-table tr:hover {
+  background: #fff7ee;
+}
+
+.notification-table a.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.notification-table a.btn:hover {
+  background: #ff8c1a;
+}
+
+/* Responsive for small screens */
+@media(max-width:900px){
+  .notification-table th, .notification-table td {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo"><span>V</span>OCO</div>
+  <div class="logo"><span>C</span>olon</div>
   <div class="menu-toggle" onclick="toggleMenu()">
     <i class="fa-solid fa-bars"></i>
   </div>
   <nav id="navMenu">
     <a href="#">Home</a>
     <a href="#about">About</a>
-    <a href="#categories">Categories</a>
-    <a href="#premium">Premium</a>
+    <a href="5221_Shop/index.html">Projects</a>
     <a href="#contact">Contact</a>
-    <a href="#" class="btn">Login</a>
-    <a href="#" class="btn">Register</a>
+    <a href="login.html" class="btn">Login</a>
   </nav>
 </header>
 
-<section class="hero show">
+<!--<section class="hero show">
   <h1>Empowering Local Businesses Digitally</h1>
-  <p>VOCO helps small & local businesses grow online with digital presence, visibility and tools.</p>
+  <p>colon helps small & local businesses grow online with digital presence, visibility and tools.</p>
   <a class="btn">Join Now</a>
+</section>-->
+<section class="hero show">
+  <h1>College Projects & Custom Software Made Easy</h1>
+  <p style="font-weight: 400;">Colon – The Computer Care Choice Centre helps students get ready-made college software projects or order custom software tailored to their needs, fast and hassle-free.</p>
+  <a style="text-decoration: none; font-weight: 600;" class="btn" href="#contact">Order Your Software</a>
 </section>
 
-<section id="categories">
+
+<!--<section id="categories">
   <h2>Business <span>Categories</span></h2>
   <div class="grid">
     <div class="card"><i class="fa-solid fa-utensils"></i><h3>Restaurants</h3></div>
@@ -720,10 +790,61 @@ footer{
     <div class="card"><i class="fa-solid fa-video"></i><h3>CCTV & Security</h3></div>
     <div class="card"><i class="fa-solid fa-store"></i><h3>Retail</h3></div>
   </div>
+</section>-->
+
+<!--
+<section>
+  <h2>Our <span>Expertise</span></h2>
+  <div class="grid">
+    <div class="expertise-card animate"><i class="fa-solid fa-store"></i><p>Business Digitization</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-earth-asia"></i><p>Market Expansion</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-credit-card"></i><p>Secure Payments</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-chart-line"></i><p>Analytics & Insights</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-bullhorn"></i><p>Digital Marketing</p></div>
+    <div class="expertise-card animate"><i class="fa-solid fa-handshake"></i><p>Local Collaboration</p></div>
+  </div>
+</section> -->
+
+<section>
+  <h2>Our <span>Expertise</span></h2>
+  <div class="grid">
+    
+    <div class="expertise-card animate">
+      <i class="fa-solid fa-file-pdf"></i>
+      <p>PDF Editing & Conversion</p>
+    </div>
+
+    <div class="expertise-card animate">
+      <i class="fa-solid fa-keyboard"></i>
+      <p>Word Typing & Documentation</p>
+    </div>
+
+    <div class="expertise-card animate">
+      <i class="fa-solid fa-paint-brush"></i>
+      <p>Format & Document Design</p>
+    </div>
+
+    <div class="expertise-card animate">
+      <i class="fa-solid fa-wpforms"></i>
+      <p>Online & Government Form Filling</p>
+    </div>
+
+    <div class="expertise-card animate">
+      <i class="fa-solid fa-globe"></i>
+      <p>Website Design & Development</p>
+    </div>
+
+    <div class="expertise-card animate">
+      <i class="fa-solid fa-bolt"></i>
+      <p>Fast & Urgent Service Delivery</p>
+    </div>
+
+  </div>
 </section>
 
+
 <section id="about">
-  <h2>About <span>VOCO</span></h2>
+  <h2>About <span>Colon</span></h2>
   <div class="about">
     
     <div class="slider">
@@ -735,89 +856,37 @@ footer{
     <button class="next-btn">›</button>
 </div>
 
-    <p style="text-align: justify;">
-      VOCO (Vocal for Local Commerce) is a platform designed to bring
-      local businesses into the digital ecosystem. We provide visibility,
-      technology, and support to help sellers grow sustainably.
+    <p style="text-align: justify; line-height: 28px;">
+      Colon – The Computer Care Choice Centre is a trusted name in computer and digital services, helping individuals, students, and businesses get their work done quickly and accurately. With over 5 years of experience, we specialize in reliable document solutions and modern digital services at affordable prices.
+
+We provide a wide range of services including PDF editing, Word typing, format and design work, online form filling, and responsive website development. Whether it’s a simple resume, a professional presentation, an important government form, or a complete website, we focus on quality, speed, and customer satisfaction.
     </p>
   </div>
 </section>
 
-<section>
-  <h2>Our <span>Expertise</span></h2>
-  <div class="grid">
-    <div class="expertise-card animate"><i class="fa-solid fa-store"></i><p>Business Digitization</p></div>
-    <div class="expertise-card animate"><i class="fa-solid fa-earth-asia"></i><p>Market Expansion</p></div>
-    <div class="expertise-card animate"><i class="fa-solid fa-credit-card"></i><p>Secure Payments</p></div>
-    <div class="expertise-card animate"><i class="fa-solid fa-chart-line"></i><p>Analytics & Insights</p></div>
-    <div class="expertise-card animate"><i class="fa-solid fa-bullhorn"></i><p>Digital Marketing</p></div>
-    <div class="expertise-card animate"><i class="fa-solid fa-handshake"></i><p>Local Collaboration</p></div>
-  </div>
-</section>
 
-<!-- ================= PREMIUM SUBSCRIPTION ================= -->
-<section id="premium">
-  <h2>Go Premium – <span>Unlock Exclusive Benefits</span></h2>
+<!-- == | Notification Section | == -->
+ <section id="notifications">
+  <h2>Latest <span>Notifications</span></h2>
 
-  <div class="premium-cta">
-    <a href="#" class="btn trial-btn">Start Free Trial</a>
-    <a href="#" class="btn subscribe-btn">Subscribe Now</a>
-  </div>
-
-  <div class="benefits grid">
-    <div class="benefit-card">
-      <i class="fa-solid fa-tag"></i>
-      <h3>Exclusive Discounts</h3>
-      <p>Get special offers only available for Premium members.</p>
-    </div>
-    <div class="benefit-card">
-      <i class="fa-solid fa-bolt"></i>
-      <h3>Priority Access</h3>
-      <p>Early access to new businesses and promotions.</p>
-    </div>
-    <div class="benefit-card">
-      <i class="fa-solid fa-star"></i>
-      <h3>Loyalty Rewards</h3>
-      <p>Earn points on every order and redeem exciting rewards.</p>
-    </div>
-    <div class="benefit-card">
-      <i class="fa-solid fa-heart"></i>
-      <h3>Support Local</h3>
-      <p>Every purchase helps local businesses grow sustainably.</p>
-    </div>
-  </div>
-
-  <div class="pricing grid">
-    <div class="plan">
-      <h3>Basic</h3>
-      <p class="price">Free</p>
-      <ul>
-        <li>Browse businesses</li>
-        <li>View deals</li>
-      </ul>
-      <a href="#" class="btn">Get Started</a>
-    </div>
-    <div class="plan popular">
-      <h3>Premium</h3>
-      <p class="price">₹99/month</p>
-      <ul>
-        <li>Exclusive discounts</li>
-        <li>Priority access</li>
-        <li>Loyalty rewards</li>
-        <li>Save favorites</li>
-      </ul>
-      <a href="#" class="btn">Subscribe Now</a>
-    </div>
-    <div class="plan">
-      <h3>Pro</h3>
-      <p class="price">₹199/month</p>
-      <ul>
-        <li>All Premium benefits</li>
-        <li>Personalized recommendations</li>
-        <li>Premium support</li>
-      </ul>
-      <a href="#" class="btn">Subscribe Now</a>
-    </div>
+  <div class="notification-table-wrapper">
+    <table class="notification-table">
+      <thead>
+        <tr>
+          <th>Exam Name</th>
+          <th>Type</th>
+          <th>Authority</th>
+          <th>Notification Date</th>
+          <th>Last Date</th>
+          <th>Exam Date</th>
+          <th>Eligibility</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody id="notification-body">
+        <!-- JavaScript will populate rows here -->
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -825,7 +894,7 @@ footer{
   <h2>Contact <span>Us</span></h2>
   <div class="contact">
     <div class="contact-info">
-      <p><strong>Email:</strong> support@thevoco.in</p>
+      <p><strong>Email:</strong> colon.query@gmail.com</p>
       <p><strong>Phone:</strong> +91 9XXXXXXXXX</p>
       <p><strong>Location:</strong> India</p>
     </div>
@@ -844,7 +913,7 @@ footer{
 
 <footer>
   <div class="footer-row">
-    <p>© 2026 VOCO – Vocal for Local</p>
+    <p>© 2026 COLON</p>
     <div class="social-icons">
       <i class="fab fa-facebook"></i>
       <i class="fab fa-instagram"></i>
@@ -854,9 +923,9 @@ footer{
   </div>
 </footer>
 
-<a href="#" class="app-float">
-  <i class="fa-brands fa-google-play"></i>
-  <span>Download App</span>
+<a href="https://wa.me/919691095539?text=Hello%20I%20need%20your%20services" class="app-float">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Contact Us</span>
 </a>
 
 <script>
@@ -973,5 +1042,69 @@ document.querySelectorAll(".slider").forEach(slider => {
     });
 });
 </script>
+
+<script>
+// Example notification data
+const notifications = [
+  {
+    examName: "UPSC Civil Services 2026",
+    type: "Government Exam",
+    authority: "UPSC",
+    notificationDate: "01-Feb-2026",
+    lastDate: "22-Feb-2026",
+    examDate: "05-Jun-2026",
+    eligibility: "Graduation",
+    link: "#"
+  },
+  {
+    examName: "SSC CGL 2026",
+    type: "Government Exam",
+    authority: "SSC",
+    notificationDate: "15-Jan-2026",
+    lastDate: "15-Feb-2026",
+    examDate: "10-Jul-2026",
+    eligibility: "Graduation",
+    link: "#"
+  },
+  {
+    examName: "State Police Recruitment 2026",
+    type: "Government Job",
+    authority: "State Police",
+    notificationDate: "05-Feb-2026",
+    lastDate: "25-Feb-2026",
+    examDate: "15-Apr-2026",
+    eligibility: "12th Pass",
+    link: "#"
+  }
+];
+
+// Function to render table rows
+function renderNotifications() {
+  const tbody = document.getElementById("notification-body");
+  tbody.innerHTML = ""; // clear existing rows
+
+  notifications.forEach(item => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${item.examName}</td>
+      <td>${item.type}</td>
+      <td>${item.authority}</td>
+      <td>${item.notificationDate}</td>
+      <td>${item.lastDate}</td>
+      <td>${item.examDate}</td>
+      <td>${item.eligibility}</td>
+      <td><a href="${item.link}" class="btn">View</a></td>
+    `;
+
+    tbody.appendChild(row);
+  });
+}
+
+// Initialize table on page load
+document.addEventListener("DOMContentLoaded", renderNotifications);
+</script>
+
+<style>
 </body>
 </html>
